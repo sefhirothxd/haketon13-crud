@@ -1,0 +1,19 @@
+{
+    "name": "hacketon",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "sass": "sass --watch src/style/main.scss src/style/main.css"
+
+    },
+    "keywords": [],
+    "author": "Bryan Vera <bveracachay@gmail.com>",
+    "license": "MIT",
+    "dependencies": {},
+    "devDependencies": {
+        "sass": "^1.26.10",
+        "terser": "^5.2.1"
+    }
+}
