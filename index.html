@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/style/reset.css">
-    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="src/style/main.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/style/reset.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="src/style/main.css" />
     <title>crud</title>
 </head>
 
@@ -18,11 +18,11 @@
             <button class="btn-plus" id="btn-plus">+</button>
         </header>
         <main>
-            <div class="container-card" id="container-agregar">
-
-            </div>
+            <div class="container-card" id="container-agregar"></div>
             <div class="container-agregar">
-                <button id="btn-open_modal" class="btn-open_modal">Agregar mascota</button>
+                <button id="btn-open_modal" class="btn-open_modal">
+						Agregar mascota
+					</button>
             </div>
             <section class="container__modal" id="container__modal">
                 <div class="modal__inner" id="modal__inner">
@@ -32,17 +32,21 @@
                             <button class="btn-x" id="js_btn-x">X</button>
                         </div>
                         <div class="modal--body">
-                            <input type="text" placeholder="Nombres" id="js_input_nombre">
-                            <input type="text" placeholder="Apellidos" id="js_input_apellidos">
-                            <input type="text" placeholder="Raza" id="js_input_raza">
-                            <input type="number" placeholder="Telefono" id="js_input_telefono">
-                            <input type="text" placeholder="Pais" id="js_input_pais">
-                            <input type="text" placeholder="URL" id="js_input_url">
+                            <input required type="text" placeholder="Nombres" id="js_input_nombre" />
+                            <input required type="text" placeholder="Apellidos" id="js_input_apellidos" />
+                            <input required type="text" placeholder="Raza" id="js_input_raza" />
+                            <input required type="number" placeholder="Telefono" id="js_input_telefono" />
+                            <input required type="text" placeholder="Pais" id="js_input_pais" />
+                            <input required type="text" placeholder="URL" id="js_input_url" />
                             <textarea name="" id="" cols="52" rows="10" id="js_input_textarea"></textarea>
                         </div>
                         <div class="modal--footer">
-                            <button class="btn btn-cancelar" id="btn-cancelar">Cancelar</button>
-                            <button class="btn btn-aceptar" id="btn-guardar">Guardar</button>
+                            <button class="btn btn-cancelar" id="btn-cancelar">
+									Cancelar
+								</button>
+                            <button class="btn btn-aceptar" id="btn-guardar">
+									Guardar
+								</button>
                         </div>
                     </form>
                 </div>

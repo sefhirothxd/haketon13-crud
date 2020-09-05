@@ -1,5 +1,5 @@
 import Modal from './modal.js';
-import initCard from "./card.js";
+import initCard from './card.js';
 
 function main() {
     let btnModal = document.querySelector('#btn-open_modal');
@@ -8,8 +8,8 @@ function main() {
         let modal = new Modal(document.getElementById('container__modal'), {
             aceptar: function() {
                 initCard(modal);
-                btnModal.style.display = 'none'
-                btnPlus.style.display = 'inline-block'
+                btnModal.style.display = 'none';
+                btnPlus.style.display = 'inline-block';
             },
             cancelar: function() {
                 modal.cerrar();
@@ -21,8 +21,6 @@ function main() {
         let modal = new Modal(document.getElementById('container__modal'), {
             aceptar: function() {
                 initCard(modal);
-
-
             },
             cancelar: function() {
                 modal.cerrar();

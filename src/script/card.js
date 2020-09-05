@@ -1,16 +1,18 @@
-import Modal from "./modal.js";
+import Modal from './modal.js';
 
 export default function initCard(modal) {
-    const form1 = document.querySelector(".js_form");
-    const nombre = document.querySelector("#js_input_nombre");
-    const apellido = document.querySelector("#js_input_apellidos");
-    const telefono = document.querySelector("#js_input_telefono");
-    const raza = document.querySelector("#js_input_raza");
-    const pais = document.querySelector("#js_input_pais");
-    const url = document.querySelector("#js_input_url");
+    const form1 = document.querySelector('.js_form');
+    const nombre = document.querySelector('#js_input_nombre');
+    const apellido = document.querySelector('#js_input_apellidos');
+    const telefono = document.querySelector('#js_input_telefono');
+    const raza = document.querySelector('#js_input_raza');
+    const pais = document.querySelector('#js_input_pais');
+    const url = document.querySelector('#js_input_url');
     form1.onsubmit = function(e) {
         e.preventDefault();
-        console.log("submit!!!");
+        console.log(e.target[9].id);
+        // if (e.target[9].id === 'btn-guardar') {
+        console.log('submit!!!');
         inserDomCard(
             crearCard({
                 nombre: nombre.value,
@@ -18,11 +20,12 @@ export default function initCard(modal) {
                 telefono: telefono.value,
                 raza: raza.value,
                 pais: pais.value,
-                img: url.value
+                img: url.value,
             })
         );
         form1.reset();
         modal.cerrar();
+        // }
     };
 }
 
@@ -43,24 +46,24 @@ function crearCard(values) {
     <button class="js_card_edit">Editar</button>
     <button class="js_card_delete">Eliminar</button></div>
 `;
-    card.querySelector(".js_card_edit").onclick = () => {
+    card.querySelector('.js_card_edit').onclick = () => {
         editCard(card, values);
     };
 
-    card.querySelector(".js_card_delete").onclick = () => {
+    card.querySelector('.js_card_delete').onclick = () => {
         card.remove();
     };
     return card;
 }
 
 function editCard(card, values) {
-    const form1 = document.querySelector(".js_form");
-    const nombre = document.querySelector("#js_input_nombre");
-    const apellido = document.querySelector("#js_input_apellidos");
-    const telefono = document.querySelector("#js_input_telefono");
-    const raza = document.querySelector("#js_input_raza");
-    const pais = document.querySelector("#js_input_pais");
-    const url = document.querySelector("#js_input_url");
+    const form1 = document.querySelector('.js_form');
+    const nombre = document.querySelector('#js_input_nombre');
+    const apellido = document.querySelector('#js_input_apellidos');
+    const telefono = document.querySelector('#js_input_telefono');
+    const raza = document.querySelector('#js_input_raza');
+    const pais = document.querySelector('#js_input_pais');
+    const url = document.querySelector('#js_input_url');
     nombre.value = values.nombre;
     apellido.value = values.apellido;
     telefono.value = values.telefono;
@@ -68,16 +71,16 @@ function editCard(card, values) {
     pais.value = values.pais;
     url.value = values.img;
 
-    const modal = new Modal(document.querySelector("#container__modal"), {
+    const modal = new Modal(document.querySelector('#container__modal'), {
         aceptar: function() {
             form1.onsubmit = (e) => {
                 e.preventDefault();
-                const nombre = document.querySelector("#js_input_nombre");
-                const apellido = document.querySelector("#js_input_apellidos");
-                const telefono = document.querySelector("#js_input_telefono");
-                const raza = document.querySelector("#js_input_raza");
-                const pais = document.querySelector("#js_input_pais");
-                const img = document.querySelector("#js_input_url");
+                const nombre = document.querySelector('#js_input_nombre');
+                const apellido = document.querySelector('#js_input_apellidos');
+                const telefono = document.querySelector('#js_input_telefono');
+                const raza = document.querySelector('#js_input_raza');
+                const pais = document.querySelector('#js_input_pais');
+                const img = document.querySelector('#js_input_url');
                 card.innerHTML = `
                 <img src="${img.value}" alt="">
                 <div class="card-content">
@@ -89,27 +92,29 @@ function editCard(card, values) {
                 </div>
                 <div class="container-btn-modal">
                 <button class="js_card_edit">Editar</button>
-                <button class="js_card_delete">Eliminar</button></div>
-        `;
+                <button class="js_card_delete">Eliminar</button></div>`;
 
-                card.querySelector(".js_card_edit").onclick = () => {
+                card.querySelector('.js_card_edit').onclick = () => {
                     editCard(card, values);
                 };
 
-                card.querySelector(".js_card_delete").onclick = () => {
+                card.querySelector('.js_card_delete').onclick = () => {
                     card.remove();
                 };
-                modal.cerrar();
+                form1.reset();
             };
+
+            modal.cerrar();
         },
         cancelar: function() {
-            modal.cancelar();
+            console.log('precionando cancelar');
+            modal.cerrar();
         },
     });
     modal.open();
 }
 
 function inserDomCard(node) {
-    const container = document.getElementById("container-agregar");
+    const container = document.getElementById('container-agregar');
     container.appendChild(node);
 }
